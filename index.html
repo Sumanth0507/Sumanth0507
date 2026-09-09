@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sumanth J — Oracle HCM Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3EFE3;
+    --paper-deep:#EAE3D2;
+    --ink:#1E2A44;
+    --ink-soft:#4A5468;
+    --teal:#33574B;
+    --teal-soft:#5C7C71;
+    --brass:#AD7F35;
+    --line:#C9C0A8;
+    --card:#FBF9F2;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Public Sans', sans-serif;
+    line-height:1.55;
+  }
+  h1,h2,h3{
+    font-family:'Source Serif 4', serif;
+    margin:0;
+    color:var(--ink);
+  }
+  a{color:var(--teal);}
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- Header / cover sheet ---------- */
+  header.cover{
+    background:var(--ink);
+    color:var(--paper);
+    padding:64px 0 56px;
+  }
+  header.cover .wrap{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:32px;
+    align-items:end;
+  }
+  .cover-name{
+    font-size:2.6rem;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:var(--paper);
+  }
+  .cover-role{
+    margin-top:10px;
+    font-size:1.05rem;
+    color:#C9CFDD;
+    max-width:52ch;
+  }
+  .cover-tag{
+    justify-self:end;
+    text-align:right;
+    border:1px solid #46536E;
+    padding:14px 18px;
+    font-size:0.85rem;
+    color:#C9CFDD;
+  }
+  .cover-tag strong{
+    display:block;
+    color:var(--paper);
+    font-family:'Source Serif 4', serif;
+    font-size:1rem;
+    margin-bottom:4px;
+  }
+  .cover-contact{
+    margin-top:22px;
+    display:flex;
+    gap:22px;
+    flex-wrap:wrap;
+    font-size:0.9rem;
+    color:#C9CFDD;
+  }
+  .cover-contact a{color:#DCE3F0; text-decoration:none; border-bottom:1px solid #4A5468;}
+  .cover-contact a:hover{border-color:#DCE3F0;}
+
+  /* ---------- section tabs ---------- */
+  nav.tabs{
+    background:var(--paper-deep);
+    border-bottom:1px solid var(--line);
+    position:sticky;
+    top:0;
+    z-index:10;
+  }
+  nav.tabs .wrap{
+    display:flex;
+    gap:0;
+    overflow-x:auto;
+  }
+  nav.tabs a{
+    padding:14px 20px;
+    font-size:0.92rem;
+    text-decoration:none;
+    color:var(--ink-soft);
+    white-space:nowrap;
+    border-bottom:3px solid transparent;
+  }
+  nav.tabs a:hover{color:var(--ink); border-bottom-color:var(--brass);}
+
+  section{padding:56px 0;}
+  section + section{border-top:1px solid var(--line);}
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:34px;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{font-size:1.7rem;}
+  .section-head p{
+    margin:0;
+    color:var(--ink-soft);
+    max-width:44ch;
+    font-size:0.95rem;
+  }
+
+  /* ---------- summary / about ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:40px;
+  }
+  .about-grid p{font-size:1.02rem; color:var(--ink-soft);}
+  .cert-seal{
+    border:1px solid var(--line);
+    background:var(--card);
+    padding:22px;
+  }
+  .cert-seal .stamp{
+    display:inline-block;
+    border:2px solid var(--brass);
+    color:var(--brass);
+    font-family:'Source Serif 4', serif;
+    font-weight:600;
+    padding:4px 10px;
+    font-size:0.78rem;
+    margin-bottom:14px;
+  }
+  .cert-seal h3{font-size:1.05rem; margin-bottom:6px;}
+  .cert-seal .meta{font-size:0.85rem; color:var(--ink-soft);}
+
+  /* ---------- skills ---------- */
+  .skill-rows{border-top:1px solid var(--line);}
+  .skill-row{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:24px;
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+    align-items:baseline;
+  }
+  .skill-row .label{
+    font-family:'Source Serif 4', serif;
+    font-size:1.02rem;
+    color:var(--ink);
+  }
+  .skill-row .items{color:var(--ink-soft); font-size:0.93rem;}
+
+  /* ---------- projects (case files) ---------- */
+  .cases{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+    gap:22px;
+  }
+  .case{
+    background:var(--card);
+    border:1px solid var(--line);
+    padding:22px 22px 20px;
+    position:relative;
+  }
+  .case::before{
+    content:"";
+    position:absolute;
+    top:0; left:0; right:0;
+    height:4px;
+    background:var(--teal);
+  }
+  .case .tag{
+    font-size:0.75rem;
+    color:var(--teal-soft);
+    font-weight:600;
+    margin-bottom:8px;
+  }
+  .case h3{font-size:1.12rem; margin-bottom:8px; line-height:1.3;}
+  .case p{font-size:0.92rem; color:var(--ink-soft); margin:0 0 12px;}
+  .case .skills{
+    font-size:0.8rem;
+    color:var(--ink-soft);
+    border-top:1px dashed var(--line);
+    padding-top:10px;
+  }
+  .case.placeholder{
+    border-style:dashed;
+    color:var(--ink-soft);
+  }
+  .case.placeholder h3{color:var(--ink-soft);}
+
+  /* ---------- background/experience ---------- */
+  .timeline{border-left:2px solid var(--line); padding-left:26px; margin-left:6px;}
+  .tl-item{position:relative; padding-bottom:28px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:"";
+    position:absolute;
+    left:-32px; top:4px;
+    width:9px; height:9px;
+    border-radius:50%;
+    background:var(--brass);
+  }
+  .tl-item h3{font-size:1.05rem; margin-bottom:4px;}
+  .tl-item .meta{font-size:0.85rem; color:var(--teal-soft); margin-bottom:6px;}
+  .tl-item p{font-size:0.92rem; color:var(--ink-soft); margin:0;}
+
+  /* ---------- contact ---------- */
+  footer{
+    background:var(--ink);
+    color:#C9CFDD;
+    padding:44px 0;
+    text-align:center;
+  }
+  footer h2{color:var(--paper); font-size:1.4rem; margin-bottom:10px;}
+  footer p{font-size:0.92rem; margin-bottom:18px;}
+  footer a{color:var(--paper); text-decoration:none; border-bottom:1px solid #4A5468; font-size:0.95rem;}
+
+  @media (max-width:720px){
+    header.cover .wrap{grid-template-columns:1fr;}
+    .cover-tag{justify-self:start; text-align:left;}
+    .about-grid{grid-template-columns:1fr;}
+    .skill-row{grid-template-columns:1fr; gap:4px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="wrap">
+    <div>
+      <div class="cover-name">Sumanth J</div>
+      <div class="cover-role">Senior Recruiter &amp; HR Ops professional transitioning into Oracle HCM Techno-Functional Consulting — 5 years in US recruiting, hands-on Oracle Cloud Recruiting experience, now building implementation and configuration skills across Oracle Fusion HCM.</div>
+      <div class="cover-contact">
+        <a href="mailto:sumanth05077@gmail.com">sumanth05077@gmail.com</a>
+        <a href="https://www.linkedin.com/in/sumanth-jayaram-b9465a1b5/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+      </div>
+    </div>
+    <div class="cover-tag">
+      <strong>Oracle Fusion Cloud HCM</strong>
+      Process Essentials — Rel 1<br>Certified August 2026
+    </div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="wrap">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Sandbox Projects</a>
+    <a href="#background">Background</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <h2 style="margin-bottom:18px;">About</h2>
+      <p>I'm a Senior Recruiter and HR Ops professional at Clean Harbors India LLP, with five years of experience running full-cycle US recruiting — requisitions, candidate pipelines, hiring manager coordination, and reporting — largely through Oracle Cloud Recruiting. That gave me a close, working knowledge of how HR processes actually run day to day.</p>
+      <p>I'm now building on that foundation by learning how Oracle HCM is configured, secured, and implemented, with the goal of moving from being a system user to an Oracle HCM Techno-Functional Consultant.</p>
+    </div>
+    <div class="cert-seal">
+      <span class="stamp">Certified</span>
+      <h3>Oracle Fusion Cloud Applications HCM Process Essentials — Rel 1</h3>
+      <div class="meta">Status: Active &middot; Achieved August 10, 2026</div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Skills</h2>
+      <p>Grouped by where I use them, from HR domain knowledge through to hands-on technical configuration.</p>
+    </div>
+    <div class="skill-rows">
+      <div class="skill-row">
+        <div class="label">HR Domain</div>
+        <div class="items">Full-cycle recruiting, candidate sourcing &amp; screening, hiring manager coordination, onboarding, recruitment reporting, stakeholder management</div>
+      </div>
+      <div class="skill-row">
+        <div class="label">Oracle Functional</div>
+        <div class="items">Global HR, Oracle Recruiting Cloud (ORC), Absence Management, Talent, Benefits, OTL — [update as you complete each]</div>
+      </div>
+      <div class="skill-row">
+        <div class="label">Oracle Technical</div>
+        <div class="items">HCM Data Loader (HDL), Application Security, BPM Approvals, Sandbox Customizations, OTBI reporting — [update as you complete each]</div>
+      </div>
+      <div class="skill-row">
+        <div class="label">Implementation</div>
+        <div class="items">Business Requirements Documents (BRD), requirement-to-configuration mapping, project lifecycle exposure via CWB documentation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Sandbox Projects</h2>
+      <p>Hands-on work from my Oracle HCM sandbox — replace these placeholders with your own as you complete them from the tracker.</p>
+    </div>
+    <div class="cases">
+      <div class="case">
+        <div class="tag">Global HR</div>
+        <h3>[Project title — e.g. "Workforce Structure Build"]</h3>
+        <p>[1–3 sentences: what you built and why it matters. Example: Configured a complete workforce structure from scratch — legal entity, business units, departments, jobs, positions and grades — then hired and transferred a test worker end to end.]</p>
+        <div class="skills">Skills: Enterprise structures, Global HR configuration</div>
+      </div>
+      <div class="case">
+        <div class="tag">HDL</div>
+        <h3>[Project title — e.g. "First HDL Load &amp; Error Recovery"]</h3>
+        <p>[Example: Loaded worker records via HDL, then intentionally triggered and resolved a load error — a good story for "tell me about a problem you solved."]</p>
+        <div class="skills">Skills: HDL, data migration, troubleshooting</div>
+      </div>
+      <div class="case">
+        <div class="tag">OTBI</div>
+        <h3>[Project title — e.g. "Headcount &amp; Requisition Reporting"]</h3>
+        <p>[Example: Built an OTBI headcount-by-department report and a requisition aging dashboard using calculated fields and prompts.]</p>
+        <div class="skills">Skills: OTBI, reporting, data analysis</div>
+      </div>
+      <div class="case placeholder">
+        <div class="tag">Add next</div>
+        <h3>Your next project goes here</h3>
+        <p>Pull this straight from the "Portfolio Tracker" sheet in your Excel file once you mark a project "Include on Portfolio: Yes."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="background">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Background</h2>
+      <p>Professional experience leading into this transition.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <h3>Senior Associate — US Recruitment — Clean Harbors India LLP</h3>
+        <div class="meta">Nov 2024 – Present</div>
+        <p>Own end-to-end recruitment operations via Oracle Cloud Recruiting (ORC), extending into HR Operations, onboarding, and the hire-to-retire lifecycle. Lead process training and build HR analytics dashboards for quarterly business reviews.</p>
+      </div>
+      <div class="tl-item">
+        <h3>Oracle Fusion Cloud HCM Process Essentials — Rel 1</h3>
+        <div class="meta">Certified August 10, 2026 &middot; Active</div>
+        <p>Formal certification establishing Oracle HCM process knowledge as the foundation for implementation-focused training.</p>
+      </div>
+      <div class="tl-item">
+        <h3>Recruiter — IT Trailblazers LLC</h3>
+        <div class="meta">Sep 2021 – Nov 2024</div>
+        <p>Sourced and recruited high-level IT professionals across multiple client accounts, managing concurrent requirements and building qualified candidate pipelines for technical roles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <p>Open to Oracle HCM Techno-Functional Consultant and Associate Consultant roles.</p>
+    <a href="mailto:sumanth05077@gmail.com">sumanth05077@gmail.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
